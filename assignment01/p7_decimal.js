@@ -1,21 +1,13 @@
 /**
  * @param {number} x
  * @return {boolean}
+ * Solve using decimal
  */
 const isPalindrome = function(x) {
     if(x < 0)
         return false;
 
-    let intToArr = x.toString().split('');
-    let flag = true;
-
-    for(let i=0; i<intToArr.length; i++){
-        if(i == intToArr.length-i)
-            break;
-        if(intToArr[i] !== intToArr[intToArr.length-i-1])
-            flag = false;
-    }
-    return flag;
+    
 };
 
 // Test Case 1
