@@ -32,8 +32,6 @@ const reverseByDecimalPlace = (number) => {
     return rvs;
 }
 
-// reverseByDecimalPlace(123);
-
 // Test Case 1
 console.log(isPalindrome(-121));
 
