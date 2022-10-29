@@ -12,7 +12,7 @@ const plusOne = function(digits) {
                 break;
             }
         }
-        // console.log(i);
+        
         if(i < 0){
             digits.unshift(1);
         }else{
