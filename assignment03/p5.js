@@ -1,9 +1,9 @@
 // https://leetcode.com/problems/happy-number/
 
-// TODO: Complete the Solution
 const isHappy = function (n) {
   let next,
-    sum = 0;
+    sum = 0,
+    sums = new Set();
 
   while (true) {
     while (n > 0) {
@@ -15,7 +15,10 @@ const isHappy = function (n) {
       return true;
     }
     n = sum;
-    console.log(n);
+    if(sums.has(n)){
+      return false;
+    }
+    sums.add(n);
     sum = 0;
   }
 };
@@ -24,7 +27,7 @@ const isHappy = function (n) {
 console.log(isHappy(19));
 
 // Test Case 2
-// console.log(isHappy(2));
+console.log(isHappy(2));
 
 // Test Case 3
 console.log(isHappy(50));

@@ -1,21 +1,14 @@
 // https://leetcode.com/problems/contains-duplicate-ii/
 
-// TODO: Complete the Solution
 const containsNearbyDuplicate = function(nums, k) {
     if(k === 0){
         return false;
     }
-    else if(nums.length < 2){
-        return false;
-    }else if(nums.length < 3){
-        return (nums[0] == nums[1]) ? true: false;
-    }
     for(let i=0; i<nums.length; i++){
-        if(i+k < nums.length){
-            if(nums[i] == nums[i+k])
-                return true;
-        }else{
-            break;
+        for(let j=i+1; j<nums.length; j++){
+            if (nums[i] == nums[j] && (Math.abs(i-j) <= k)) {
+              return true;
+            }
         }
     }
     return false;
