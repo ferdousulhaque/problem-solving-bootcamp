@@ -20,7 +20,8 @@ Take the following considerations while making test cases or corner cases
 - Greddy [Longest Path Type]
 - Dijkstra algorithm [Shortest Path Type]
 - Knapsack Problem
-- Summation Formula
-- Tower of hanoi
+- Gauss's Summation Formula
+- Recursion / Dynamic Programming
+- Minnie-Max
 - BFS / DFS
 - Graph theory
