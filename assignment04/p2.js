@@ -1,93 +1,59 @@
 // https://leetcode.com/problems/spiral-matrix/
 
 const spiralOrder = function (matrix) {
+  let top, down, left, right;
+  down = matrix.length-1;
+  right = matrix[0].length-1;
+  top = 0;
+  left = 0;
   let direction = 0;
-  let visited = new Set;
-  let result = [];
-  while(true){
-    // Move right
+  let values = [];
+
+  while(top <= down && left <= right){
     if(direction == 0){
-      for(let i=0; i<matrix[0].length; i++){
-        let v = matrix[0][i];
-        if (visited.has("0"+i.toString())){
-          break;
-        } else{
-          result.push(v);
-          visited.add("0" + i.toString());
-        }
+      for(i=left; i<=right; i++){
+        values.push(matrix[top][i])
       }
       direction = 1;
+      top += 1;
     }
-
-    // Move down
-    if (direction == 1) {
-      for (let i = 1; i < matrix.length; i++) {
-        let v = matrix[i][matrix.length-1];
-        if (visited.has(i.toString() + `${matrix.length-1}`)) {
-          break;
-        } else {
-          result.push(v);
-          visited.add(i.toString() + `${matrix.length - 1}`);
-        }
+    else if (direction == 1) {
+      for (i = top; i <= down; i++) {
+        values.push(matrix[i][right]);
       }
       direction = 2;
+      right -= 1;
     }
-
-    // Move left
-    if (direction == 2) {
-      for (let i = matrix[0].length-2; i >= 0; i--) {
-        let v = matrix[matrix.length - 1][i];
-        if (visited.has(`${matrix.length - 1}${i}`)) {
-          break;
-        } else {
-          result.push(v);
-          visited.add(`${matrix.length - 1}${i}`);
-        }
+    else if (direction == 2) {
+      for (i = right; i >= left; i--) {
+        values.push(matrix[down][i]);
       }
       direction = 3;
+      down -= 1;
     }
-
-    if(direction == 3){
-      console.log(visited);
-      break;
+    else if (direction == 3) {
+      for (i = down; i >= top; i--) {
+        values.push(matrix[i][left]);
+      }
+      direction = 0;
+      left += 1;
     }
   }
-
-  return result;
-};
-
-const spiralOrder2 = function (matrix) {
-  let top = 0;
-  let bottom = matrix.length;
-  let left = 0;
-  let right = matrix[0].length;
-  let visited = new Set();
-  let result = [];
-
-  while (left < right && top < bottom){
-    for(let i=left; i<right; i++){
-      result.push(matrix[top][i]);
-    }
-    top += 1;
-    break;
-  }
-
-  console.log(result);
-
-};
+  return values;
+}
 
 // Test Case 1
-// console.log(
-//   spiralOrder2([
-//     [1, 2, 3],
-//     [4, 5, 6],
-//     [7, 8, 9]
-//   ])
-// );
+console.log(
+  spiralOrder([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ])
+);
 
 // Test Case 2
 console.log(
-  spiralOrder2([
+  spiralOrder([
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12]
@@ -95,11 +61,11 @@ console.log(
 );
 
 // Test Case 3
-// console.log(
-//   spiralOrder([
-//     [1, 2, 3, 4],
-//     [5, 6, 7, 8],
-//     [9, 10, 11, 12]
-//     [13, 14, 15, 16]
-//   ])
-// );
+console.log(
+  spiralOrder([
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+  ])
+);
