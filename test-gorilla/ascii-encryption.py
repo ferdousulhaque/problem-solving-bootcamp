@@ -20,7 +20,11 @@ def convert(message: str, reveal: str) -> str:
                 if(chars == " "):
                     surprize = surprize + " "
                 elif (ord(chars) > 64 and ord(chars) < 92) or (ord(chars) > 96 and ord(chars) < 123):
-                    surprize = surprize + chr(ord(chars) - gap)
+                    if chars.islower():
+                        # To ensure that negative values do not come in
+                        surprize = surprize + chr((ord(chars) - gap - ord('a')) % 26 + ord('a')) 
+                    else:
+                        surprize = surprize + chr((ord(chars) - gap - ord('A')) % 26 + ord('A'))
                 else:
                     surprize = surprize + chars
         return surprize
