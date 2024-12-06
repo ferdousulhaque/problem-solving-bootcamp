@@ -8,7 +8,7 @@ const tail = (array) => array.slice(1, array.length);
 // console.log(tail(array));
 
 const map = (array, fun, store) => {
-    if(array.length == 0){
+    if(array.length === 0){
         return store;
     }
     store.push(fun(head(array)));
