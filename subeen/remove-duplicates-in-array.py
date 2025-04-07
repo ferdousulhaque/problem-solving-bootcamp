@@ -1,7 +1,7 @@
 # Remove the duplicates in the array without using extra array.
 # Optimizing Space Complexity
 
-# T ->  and S -> O(1)
+# T -> O(n) and S -> O(1)
 
 def code(**kwargs) -> list:
     # Change the below variables according to your problem
