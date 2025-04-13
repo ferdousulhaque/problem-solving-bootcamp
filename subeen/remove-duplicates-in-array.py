@@ -1,5 +1,6 @@
 # Remove the duplicates in the array without using extra array.
 # Optimizing Space Complexity
+# https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
 # T -> O(n) and S -> O(1)
 
