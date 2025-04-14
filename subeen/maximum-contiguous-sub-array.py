@@ -1,7 +1,7 @@
 # Find the maximum contiguous sum in the array
 # https://leetcode.com/problems/maximum-subarray/
 
-# T ->  and S -> 
+# T -> O(n) and S -> O(1)
 
 def code(**kwargs) -> int:
     # Change the below variables according to your problem
